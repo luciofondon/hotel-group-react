@@ -1,0 +1,13 @@
+{
+    "hotels": [
+        {
+            "name": "Hotel 1"
+        },
+        {
+            "name": "Hotel 2"
+        },
+        {
+            "name": "Hotel 3"
+        }
+    ]
+}
