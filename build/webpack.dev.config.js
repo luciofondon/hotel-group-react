@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    "app": path.resolve(__dirname, 'src/entries/app.js')
+    "app": path.resolve(__dirname, '../src/entries/app.js')
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -35,6 +35,33 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
+      {
+        test:/\.css$/,
+        use:['style-loader','css-loader']
+
+      },
+      {
+        test: /\.(eot|woff|woff2|ttf)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 10000,
+            fallback: "file-loader",
+            name: "content/fonts/[name].[ext]"
+          }
+        }
+      }
     ]
   }
 }
